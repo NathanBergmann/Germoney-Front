@@ -1,0 +1,45 @@
+$primary-color: #0A4D80;
+$secondary-color: #2c3e50;
+$background-color: #ecf0f1;
+$font-stack: 'Comic Sans MS', cursive, sans-serif;
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background-color: $background-color;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 5rem;
+  color: $primary-color;
+  font-family: $font-stack;
+}
+
+.message {
+  font-size: 2rem;
+  color: $secondary-color;
+  margin-top: 20px;
+  font-family: $font-stack;
+}
+
+.button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: $font-stack;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
