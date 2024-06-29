@@ -1,5 +1,6 @@
 import styles from "./navbar.module.scss"
 import classNames from "classnames";
+import Link from "next/link";
 
 const NavBar = () => {
     return (
@@ -10,6 +11,10 @@ const NavBar = () => {
                          className="d-inline-blockalign-text-bottom"/>
                     Germoneys
                 </div>
+
+              <Link href="/user/login">
+                <p className={styles.loginLink}>Login</p>
+              </Link>
             </nav>
         </>
     )

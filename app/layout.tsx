@@ -3,6 +3,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import classNames from "classnames";
 import { Open_Sans } from 'next/font/google'
+import { BasePage } from "@/components/basePage";
 
 export const metadata: Metadata = {
   title: "Germoneys",
@@ -29,7 +30,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet"/>
     </head>
     <body className={classNames(openSans.className,'d-flex flex-column min-vh-100 bg-secondary bg-opacity-25')}>
-        {children}
+      <BasePage>
+          {children}
+      </BasePage>
     </body>
     </html>
   );
