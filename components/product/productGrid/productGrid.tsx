@@ -12,7 +12,7 @@ interface productGridProps {
 
 const ProductGrid = ({products}: productGridProps) => {
     return (
-        <div className={"p-5 pt-0"}>
+        <div className={"p-5 pt-3"}>
         <div className={styles.products}>
             {products.map((product, index) => (
                 <Card className={styles.card} key={index}>
