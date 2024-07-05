@@ -15,28 +15,6 @@ interface BasePageProps {
 
 const BasePage = ({ children }: BasePageProps) => {
 	const [showToast, setShowToast] = useState(false)
-
-	const router = useRouter()
-	const pathname = usePathname()
-
-	useEffect(() => {
-		const privatePages = ['/product'];
-		const isPrivatePage = privatePages.some(page => pathname.startsWith(page))
-		if (!isPrivatePage) return
-
-		const authToken = sessionStorage.getItem('authToken')
-		if (!authToken) router.push('/user/login')
-
-		const tokenExpiryStorage = sessionStorage.getItem('tokenExpiry')
-		const tokenExpiry = Number(tokenExpiryStorage)
-		if (new Date().getTime() > tokenExpiry) {
-			sessionStorage.removeItem('authToken')
-			sessionStorage.removeItem('tokenExpiry')
-			router.push('/user/login')
-			setShowToast(true)
-		}
-	}, [])
-
 	useEffect(() => {
 		if (showToast) {
 			const timer = setTimeout(() => {

@@ -12,4 +12,8 @@ export function middleware(request: NextRequest) {
 	if (request.nextUrl.pathname.startsWith('/user') && authToken !== undefined) {
 		return NextResponse.redirect('http://localhost:3000/catalog')
 	}
+
+	if (request.nextUrl.pathname.startsWith('/product') && !authToken) {
+		return NextResponse.redirect('http://localhost:3000/catalog')
+	}
 }
