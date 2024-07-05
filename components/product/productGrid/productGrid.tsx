@@ -28,7 +28,7 @@ const ProductGrid = ({products}: productGridProps) => {
                 <Card className={styles.card} key={index} onClick={() => handleClick(product.id)}>
                     <img className={styles.img}
                          alt="Product image"
-                         src="https://picsum.photos/300/200"
+                         src={product.imageUrl}
                     />
                     <CardBody>
                         <CardTitle tag="h5" className={styles.text}>
