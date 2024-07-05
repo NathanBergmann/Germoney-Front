@@ -80,9 +80,9 @@ const CatalogPage = ({ products }: CatalogPageProps) => {
             {!isFiltered ?
                 <ProductGrid products={products} /> :
                 <>
-                    <h5 className="text-center">Você pode adquirir os seguintes produtos!</h5>
+                    <h5 className="text-center mt-3">Você pode adquirir os seguintes produtos!</h5>
                     <ProductGrid products={productsTheyCanBuy}/>
-                    <h5 className="text-center">Falta pouco para adquirir os produtos. Continue economizando!</h5>
+                    <h5 className="text-center mt-3">Falta pouco para adquirir os produtos. Continue economizando!</h5>
                     <ProductGrid products={productsTheyCantBuy}/>
                 </>
             }
