@@ -7,13 +7,14 @@ import logoicon from "../../../app/assets/images/logoicon.png";
 import { Product } from "@/types/products";
 import { useUser } from "@/app/contexts/userContext";
 import { useRouter } from "next/navigation";
-import {createClientInstance} from "@/api/axiosClient";
+import { createClientInstance } from "@/api/axiosClient";
+import AppButton from "@/components/appButton";
 
-interface productGridProps {
+interface ProductGridProps {
     products: Product[]
 }
 
-const ProductGrid = ({ products }: productGridProps) => {
+const ProductGrid = ({ products }: ProductGridProps) => {
     const { isLoggedIn } = useUser();
     const router = useRouter();
 
@@ -24,6 +25,12 @@ const ProductGrid = ({ products }: productGridProps) => {
 
     return (
         <div className="p-5 pt-3">
+            {isLoggedIn && (
+                <div className="text-center mb-3">
+                    <AppButton label={"Adicionar produto"} onClick={() => router.push("/product/add")}/>
+                </div>
+            )}
+
             <div className={styles.products}>
                 {products.map((product, index) => (
                     <Card className={styles.card} key={index} onClick={() => handleClick(product.id)}>
