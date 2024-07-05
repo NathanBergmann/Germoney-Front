@@ -1,10 +1,5 @@
 import styles from "./form.module.scss"
 import classNames from "classnames"
-import { createClientInstance } from "@/api/axiosClient";
-import RootLayout from "@/app/layout";
-import { useRouter } from "next/navigation";
-
-const ProductNEw = 
 
 const Form = () => {
     return(
@@ -34,17 +29,4 @@ const Form = () => {
     )
 };
 
-const productAdd = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const router = useRouter();
-
-    try {
-        const axiosInstance = createClientInstance();
-        await axiosInstance.post(`/products/save`, {name: "", price: 0, imageUrl: ""});
-        router.post('/catalog');
-    } catch (error) {
-        console.error('Failed to update product', error);
-    }
-};
-
-export default Form, ProductSave
+export default Form

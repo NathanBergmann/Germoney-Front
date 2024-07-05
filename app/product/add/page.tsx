@@ -7,7 +7,6 @@ export default function Page(){
     return (
         <>
             <NavBar/>
-            <ViewPicture src={"/app/assets/images/peteca.jpg"}/>
             <Form/>
             <Footer/>
         </>
