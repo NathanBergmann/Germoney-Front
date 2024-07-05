@@ -1,17 +1,22 @@
 'use client'
 
 import { Input, InputGroup, InputGroupText } from "reactstrap";
-import styles from "./inputValue.module.scss";
+import styles from "./moneyInput.module.scss";
 import { useState } from "react";
 
-const InputValue = () => {
+interface MoneyInputProps {
+    onValueChange: (value: number) => void;
+}
+
+const MoneyInput = ({onValueChange}: MoneyInputProps) => {
     const [value, setValue] = useState('');
     const [isValid, setIsValid] = useState(true);
 
-    const handleChange = (e: { target: { value: any; }; }) => {
-        const newValue = e.target.value;
+    const handleChange = (value: { target: { value: any; }; }) => {
+        const newValue = value.target.value;
         setValue(newValue);
         validateValue(newValue);
+        onValueChange(newValue);
     };
 
     const validateValue = (value: string) => {
@@ -42,4 +47,4 @@ const InputValue = () => {
     );
 };
 
-export default InputValue;
+export default MoneyInput;

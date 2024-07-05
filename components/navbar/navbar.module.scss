@@ -7,3 +7,23 @@
   font-size:1.5rem;
   color:aliceblue;
 }
+
+.loginLink {
+  position: absolute;
+  right: 1rem;
+  margin: 0;
+  top: 7px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: aliceblue;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid aliceblue;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: aliceblue;
+    color: #0A4D80;
+  }
+}

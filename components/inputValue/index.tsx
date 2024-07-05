@@ -1,3 +1,3 @@
-import InputValue from "@/components/inputValue/inputValue";
+import MoneyInput from "@/components/inputValue/moneyInput";
 
-export default InputValue
+export default MoneyInput

@@ -1,5 +1,6 @@
 import styles from "./navbar.module.scss"
 import classNames from "classnames";
+import Link from "next/link";
 
 const NavBar = () => {
     return (
