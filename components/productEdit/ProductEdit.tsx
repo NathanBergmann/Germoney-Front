@@ -33,8 +33,7 @@ const ProductEdit = ({ id }: ProductEditProps) => {
 
 	const handleSave = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (!product) return; // Ensure product is not null
-		// Assuming you have a way to gather form data into updatedProduct
+		if (!product) return;
 		const updatedProduct: {} = {/* form data */};
 		try {
 			const axiosInstance = createClientInstance();
@@ -48,20 +47,17 @@ const ProductEdit = ({ id }: ProductEditProps) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value, type } = e.target;
 		setProduct(prevState => {
-			if (prevState === null) return null; // If there's no previous state, return null
+			if (prevState === null) return null;
 
-			// Convert value based on input type
 			const updatedValue = type === 'number' ? parseFloat(value) || 0 : value;
 
-			// Return a new object with the updated value, ensuring all properties are defined
 			return {
 				...prevState,
 				[name]: updatedValue,
-				// Ensure all required properties are listed, provide default values if necessary
 				id: prevState.id,
-				name: prevState.name ?? '', // Use existing value or default to empty string
-				price: prevState.price ?? 0, // Use existing value or default to 0
-				image: prevState.image ?? '' // Use existing value or default to empty string
+				name: prevState.name ?? '',
+				price: prevState.price ?? 0,
+				image: prevState.imageUrl ?? ''
 			};
 		});
 	};
@@ -98,7 +94,7 @@ const ProductEdit = ({ id }: ProductEditProps) => {
 						type="text"
 						name="image"
 						id="image"
-						value={product?.image}
+						value={product?.imageUrl}
 						onChange={handleChange}
 						className={styles.input}
 					/>
