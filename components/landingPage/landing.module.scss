@@ -1,5 +1,5 @@
 .logoImage{
-    background-color: white;
+    background-color: whitesmoke;
     border-radius: 50%;
     width: 15rem;
     height: auto;
@@ -17,12 +17,43 @@
     object-fit: cover;
 }
 .mainText{
-    color: white;
+    color: whitesmoke;
     font-weight: bold;
     font-size: 40px;
     text-align: center;
     margin-bottom: 3rem;
 }
-.wrapContainer{
-    height: fit-content;
+.loginLink {
+    position: absolute;
+    right: 1rem;
+    margin: 0;
+    top: 7px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0A4D80;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #0A4D80;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  
+    &:hover {
+      background-color: #0A4D80;
+      color: aliceblue;
+    }
+  }
+.btnCatalogo{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: aliceblue;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: #0A4D80;
+    text-align: center;
+  
+    &:hover {
+        color: aliceblue;
+        background-color: #235c88be;
+    }
 }
