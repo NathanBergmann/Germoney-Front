@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { Product } from "@/types/products";
 import { createClientInstance } from "@/api/axiosClient";
 import { useRouter } from "next/navigation";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 import styles from './ProductEdit.module.scss';
 
