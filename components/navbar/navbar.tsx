@@ -11,10 +11,6 @@ const NavBar = () => {
                          className="d-inline-blockalign-text-bottom"/>
                     Germoneys
                 </div>
-
-              <Link href="/user/login">
-                <p className={styles.loginLink}>Login</p>
-              </Link>
             </nav>
         </>
     )
