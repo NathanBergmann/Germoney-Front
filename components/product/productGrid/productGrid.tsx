@@ -7,7 +7,6 @@ import logoicon from "../../../app/assets/images/logoicon.png";
 import { Product } from "@/types/products";
 import { useUser } from "@/app/contexts/userContext";
 import { useRouter } from "next/navigation";
-import { createClientInstance } from "@/api/axiosClient";
 import AppButton from "@/components/appButton";
 
 interface ProductGridProps {

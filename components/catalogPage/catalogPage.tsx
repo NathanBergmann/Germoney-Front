@@ -68,7 +68,7 @@ const CatalogPage = ({ products }: CatalogPageProps) => {
 
     return (
         <>
-            <div className="p-5">
+            <div className="p-5 pb-1">
                 <div className={classNames("rounded", styles.pageBox)}>
                     <h1 className={styles.text}>Cumpriu Tarefas, Ganhou Germoneys, Escolheu Prêmios!</h1>
                     <div className="p-5 d-flex justify-content-center align-items-start">
