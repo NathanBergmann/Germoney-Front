@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Toast, ToastBody, ToastHeader } from 'reactstrap'
 
 import styles from './BasePage.module.scss'
+import { UserProvider } from "@/app/contexts/userContext"
 
 interface BasePageProps {
 	children: React.ReactNode
@@ -50,11 +51,13 @@ const BasePage = ({ children }: BasePageProps) => {
 
 	return (
 		<>
-			<Toast isOpen={showToast} toggle={() => setShowToast(false)} className={styles.toast} fade>
-				<ToastHeader icon="warning">Sessão expirada</ToastHeader>
-				<ToastBody>Sua sessão expirou. Por favor, faça login novamente.</ToastBody>
-			</Toast>
-			{children}
+			<UserProvider>
+				<Toast isOpen={showToast} toggle={() => setShowToast(false)} className={styles.toast} fade>
+					<ToastHeader icon="warning">Sessão expirada</ToastHeader>
+					<ToastBody>Sua sessão expirou. Por favor, faça login novamente.</ToastBody>
+				</Toast>
+				{children}
+			</UserProvider>
 		</>
 	)
 }

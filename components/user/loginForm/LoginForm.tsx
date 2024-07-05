@@ -3,10 +3,11 @@
 import {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation'
 
-import api from "@/api/api";
+import {createClientInstance} from "@/api/axiosClient";
 import { Button, Form, FormGroup, Input, Label, Toast, ToastBody, ToastHeader } from "reactstrap";
 
 import styles from './LoginForm.module.scss';
+import { getCookie, setCookie } from "cookies-next";
 
 const LoginForm = () => {
 	const [username, setUsername] = useState('');
@@ -20,14 +21,16 @@ const LoginForm = () => {
 	const router = useRouter()
 
 	useEffect(() => {
-		const authToken = sessionStorage.getItem('authToken');
+		const authToken = getCookie('authToken');
 		if (authToken) router.push('/catalog')
 	}, []);
 
 	const handleSubmit = (event: { preventDefault: () => void; }) => {
 		event.preventDefault();
 		setIsLoading(true);
-		api.post('/users/login', {
+
+		const axiosInstance = createClientInstance()
+		axiosInstance.post('/users/login', {
 			email: username,
 			password: password
 		}, {
@@ -39,9 +42,9 @@ const LoginForm = () => {
 				if (response.status !== 200 || !response.data?.token) throw new Error('Ops! Ocorreu um erro interno.');
 
 				const expiryTime = new Date().getTime() + 60 * 60 * 1000;
-				sessionStorage.setItem('authToken', response.data.token);
-				sessionStorage.setItem('tokenExpiry', expiryTime.toString());
-				sessionStorage.setItem('user', response.data.name);
+				setCookie('authToken', response.data.token, { expires: new Date(expiryTime) })
+				setCookie('isLoggedIn', 'true', { expires: new Date(expiryTime) });
+				setCookie('user', response.data.name, { expires: new Date(expiryTime) })
 				router.push('/catalog')
 			})
 			.catch(error => {
