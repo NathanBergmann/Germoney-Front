@@ -5,20 +5,30 @@ import styles from "./productGrid.module.scss";
 import Image from "next/image"
 import logoicon from "../../../app/assets/images/logoicon.png"
 import {Product} from "@/types/products";
+import {useUser} from "@/app/contexts/userContext";
+import {useRouter} from "next/navigation";
 
 interface productGridProps {
     products: Product[]
 }
 
 const ProductGrid = ({products}: productGridProps) => {
+    const { isLoggedIn } = useUser()
+    const router = useRouter()
+
+    const handleClick = (productId: number) => {
+        if (!isLoggedIn) return
+        router.push(`/product/edit/${productId}`)
+    }
+
     return (
-        <div className={"p-5 pt-0"}>
+        <div className={"p-5 pt-3"}>
         <div className={styles.products}>
             {products.map((product, index) => (
-                <Card className={styles.card} key={index}>
+                <Card className={styles.card} key={index} onClick={() => handleClick(product.id)}>
                     <img className={styles.img}
                          alt="Product image"
-                         src="https://picsum.photos/300/200"
+                         src={product.imageUrl}
                     />
                     <CardBody>
                         <CardTitle tag="h5" className={styles.text}>
