@@ -1,0 +1,24 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: #0A4D80;
+    margin-left: 15%;  /* Ajuste o valor conforme necessário */
+    margin-right: 15%; /* Ajuste o valor conforme necessário */
+    align-items: center;
+}
+
+.form {
+    width: 100%;    
+    max-width: 80%;// Limita a largura máxima do formulário
+    padding: 20px;
+}
+
+.divCenter{
+    align-items: center;
+}
+
+.p {
+    text-align: left;
+    color: white;
+}
